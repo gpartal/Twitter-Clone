@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block main %}
+
+<div class="mt-4">
+
+
+    {% if profiles %}
+    
+    <ul class="list-unstyled">
+
+        {% for profil in profiles %}
+        <li class='my-3 border p-3'>
+            <a class='text-white' href="{% url 'profile' profil.slug %}">
+             <img src="{{profil.image.url}}" width='40' height='40' class='rounded-5 me-3' alt="{{profil.name}}">   {{profil.name}} - @{{profil.user.username}}
+            </a>
+        </li>
+        
+        {% endfor %}
+    </ul>
+    
+    {% elif posts %}
+    
+    {% for post in posts %}
+    {% include "partials/_tweet.html" %}
+    
+    {% endfor %}
+    
+    {% endif %}
+</div>
+
+{% endblock main %}

@@ -1,0 +1,78 @@
+{% load humanize %}
+
+<div class="row w-100 border-bottom mt-3">
+    <div class="col-2 pt-2 ">
+      <img src="{{post.author.image.url}}" alt="" width="50" height="50" class="rounded-circle me-2">
+    </div>
+    <div class="col-10 pt-2 ">
+      <div>
+        <a href="{% url 'profile' post.author.slug %}" class="text-white text-decoration-none fs-5">{{post.author.name}}</a>
+        <a class="fs-6 link-secondary text-decoration-none" href="#">@{{post.author.user.username}}</a>
+        <a class="fs-6 link-secondary text-decoration-none" href="">・{{post.created_at | naturaltime}}</a>
+      </div>
+      <div>
+        <p>{{post.content}}</p>
+      </div>
+      <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="postId" value="{{post.id}}">
+      <div class="d-flex align-items-center justify-content-between mb-3 ">
+        <div class="d-flex ">
+          <div class="bottomGroup d-flex  align-items-center justify-content-center commentHover ">
+            <a href="{% url 'comment' post.id %}" class="text-decoration-none text-secondary "><i class="fa-regular fa-comment  commentHover"></i></a>
+          </div>
+          <a href="{% url 'comment' post.id %}" class="mt-2 fs-6 text-decoration-none text-secondary ">{{post.comment_set.all.count}}</a>
+        </div>
+        <div class="d-flex ">
+          <div class="bottomGroup d-flex  align-items-center justify-content-center commentHover ">
+            <button type="submit" name="retweet" class="bg-transparent border-0 text-secondary ">
+              <i 
+              {% if request.user.profile in post.retweet.all %}
+              class="fa-solid fa-retweet text-primary  commentHover"
+              {% else %}
+              class="fa-solid fa-retweet  commentHover"
+              {% endif %}></i></button>
+          </div>
+          <button type="submit" name="retweet" class="mt-2 fs-6 bg-transparent border-0 text-secondary ">{{post.retweet.all.count}}</button>
+        </div>
+
+        <div class="d-flex ">
+          <div class="bottomGroup d-flex  align-items-center justify-content-center likeHover ">
+            <button type="submit" name="like" class="bg-transparent border-0 text-secondary ">
+              <i 
+              {% if request.user.profile in post.like.all %}
+              class="fa-solid text-danger fa-heart  likeHover"
+              {% else %}
+              class="fa-regular fa-heart  likeHover"
+              {% endif %}
+              
+              ></i>
+            </button>
+          </div>
+          <button type="submit" name="like" class="mt-2 fs-6 bg-transparent border-0 text-secondary ">{{post.like.all.count}}</button>
+        </div>
+        <div class="d-flex ">
+          <div class="bottomGroup d-flex  align-items-center justify-content-center viewHover ">
+            <a href="#" class="text-decoration-none text-secondary "><i class="fa-solid fa-chart-simple viewHover"></i></a>
+          </div>
+          <a href="" class="mt-2 fs-6 text-decoration-none text-secondary ">{{post.view.all.count}}</a>
+        </div>
+        <div class="me-3 d-flex align-items-center justify-content-center ">
+            <div class="bottomGroup d-flex  align-items-center justify-content-center commentHover ">
+              <button type='submit' name='save' class="bg-transparent border-0 text-secondary ">
+                <i 
+                {% if request.user.profile in post.saves.all %}
+                class="fa-solid text-white fa-flag commentHover"
+                {% else %}
+                class="fa-regular fa-flag commentHover"
+                {% endif %}
+                 title="Yer işareti"></i></button>
+            </div>
+            <div class="bottomGroup d-flex  align-items-center justify-content-center viewHover ">
+              <a href="#" class="text-decoration-none text-secondary "><i class="fa-solid fa-arrow-up-from-bracket viewHover" title="Paylaş"></i></a>
+            </div>              
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>

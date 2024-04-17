@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block main %}
+<form method='POST' class='mt-3' enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="">Kullanıcı Adı</label>
+    <input type="text" name='username' value="{{username}}" required class='form-control' id="">
+    <label for="">Email</label>
+    <input type="email" name="email" value="{{email}}" required id="" class="form-control">
+
+    {{profilForm}}
+
+    <input type="submit" value="Güncelle" class="btn btn-primary mt-2">
+
+    <div class='border-top pt-2 mt-2'>
+        <label for="">Mevcut Şifre</label>
+        <input type="password" name="oldPassword" id="" class="form-control mb-2">
+        <label for="">Yeni Şifre</label>
+        <input type="password" name="newPassword1" id="" class="form-control mb-2">
+        <label for="">Şifrenizi Onaylayın</label>
+        <input type="password" name="newPassword2" id="" class="form-control mb-2">
+        <input type="submit" value="Şifreyi Değiştir" name='change' class="btn btn-primary mt-2">
+    </div>
+
+</form>
+
+{% endblock main %}

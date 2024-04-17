@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block main %}
+   <div class="mt-4">
+
+    {% for post in posts %}
+         {% include "partials/_tweet.html" %}
+    {% endfor %}
+   </div>
+
+
+{% endblock main %}

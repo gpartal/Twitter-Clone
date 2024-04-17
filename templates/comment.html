@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% load humanize %}
+{% block main %}
+
+<div class="mt-4">
+    {% include "partials/_tweet.html" %}
+
+
+    <form method='POST' class="my-3">
+        {% csrf_token %}
+        <input type="text" name="commentForm" class="w-75 py-2 px-3 rounded-3" id="">
+        <input type="submit" name="commentButton" class="btn btn-secondary" value="Yorum Yap">
+    </form>
+</div>
+
+<div class="mt-2 row">
+    {% for comment in post.comment_set.all %}
+    <div class="col-2 pt-2 ">
+        <img src="{{comment.owner.image.url}}" alt="" width="50" height="50" class="rounded-circle me-2">
+      </div>
+      <div class="col-10 pt-2 ">
+        <div>
+          <a href="#" class="text-white text-decoration-none fs-5">{{comment.owner.name}}</a>
+          <a class="fs-6 link-secondary text-decoration-none" href="#">@{{comment.owner.user.username}}</a>
+          <a class="fs-6 link-secondary text-decoration-none" href="">・{{comment.created_at | naturaltime}}</a>
+        </div>
+        <div>
+           @{{comment.post.author.user.username}} <p>{{comment.content}}</p>
+        </div>
+    </div>
+    <hr class="my-2">
+    
+    {% endfor %}
+</div>
+
+{% endblock main %}

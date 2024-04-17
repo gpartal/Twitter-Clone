@@ -1,0 +1,405 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin-bottom: 80px;
+}
+
+.homeBody{
+  background: #000;
+}
+
+.homeIcon{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 20%;
+}
+
+
+
+
+.tw{
+  margin-top: 45%;
+  font-size: 23rem;
+  color: #fff;
+}
+
+
+
+.homeContext{
+color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 10%;
+margin-bottom: 10%;
+
+}
+
+.homeContext h1{
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  line-height: 84px;
+}
+
+
+span{
+  display: block;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  line-height: 84px;
+}
+
+.joinContent p{
+font-size: 31px;
+font-weight: 500;
+}
+
+
+
+.homeGoogle, .homeApple{
+  
+  font-size: 15px;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 5px;
+  text-align: center;
+  padding: 1px 1px 10px 10px;
+}
+
+.homeJoinInfo{
+  font-size: 15px;
+  background-color:#3498db;
+  border-radius: 20px;
+  margin: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeJoinInfo a{
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.googleLogos1, .appleLogos1{
+color: black;
+padding-right: 10px;
+display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.homeGoogle a, .homeApple a{
+  
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+  position: relative;
+  padding: 50px;
+}
+
+.homeBtnGroup{
+  
+  position: absolute;
+  margin-left: 500px;
+  margin-top: 300px;
+}
+
+.tobeornottobe{
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftandright{
+  color: rgb(113, 118, 123);
+  height: 1px;
+  width: 110px;
+  margin: 5px;
+  border: 1px solid;
+}
+
+.whenfinished{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size:11px;
+  margin-top: 5px;
+}
+
+.alreadyJoin{
+position: absolute;
+color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 40%;
+margin-left: 34%;
+}
+.ithinkfinished{
+  position: absolute;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.ithinkfinished button{
+  width: 300px;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 45px;
+  box-shadow: none;
+  border-color: #3498db;
+  color:#3498db;
+  margin-top: 35px;
+  margin-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.ithinkfinished button:hover{
+  background-color: rgb(29, 155, 240, 0.1);
+}
+
+.footerBooter{
+  position: relative;
+  margin-top: 15%;
+}
+
+.footerBooter ul{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 15px;
+}
+
+.footerBooter ul li a{
+  list-style: none;
+  text-decoration: none;
+  color: rgb(113, 118, 123);
+  font-size: 10px;
+  
+  }
+
+  /* Login Page */
+
+
+
+
+.loginBox {
+  width: 600px;
+  height: 600px;
+  background-color: #000;
+  border-radius: 20px;
+}
+
+.loginBoxWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.upleft{
+display: flex;
+justify-content: start;
+margin-top: 15px;
+margin-left: 15px;
+
+}
+
+.markx{
+color: #fff;
+font-size: 25px;
+cursor:pointer;
+}
+
+.loginCenter{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 245px;
+}
+
+.logintwitter{
+color: #fff;
+font-size: 40px;
+}
+
+.centerTwitterLogin{
+color: #fff;
+display: flex;
+justify-content: flex-start;
+margin-left: 25%;
+margin-top: 5%;
+align-items: center;
+font-size: 31px;
+}
+
+.twitterButtonLogin{
+margin: 15px;
+}
+
+.twitterButtonLogin2{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.twitterButtonLogin1{
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 20px;
+}
+
+.twitterButtonLogin2 button{
+padding: 5px 40px 5px 30px;
+border-radius: 20px;
+background-color: #fff;
+}
+
+
+
+.twitterButtonLogin2 button i{
+padding-right: 15px
+
+}
+
+.twitterButtonLogin1 button i{
+padding-right: 15px
+
+}
+
+
+
+
+.twitterButtonLogin1 button{
+padding: 5px 40px 5px 40px;
+border-radius: 20px;
+background-color: #fff;
+}
+
+
+.input{
+text-align: center;
+margin-top: 15px;
+}
+
+.input input{
+width: 250px;
+height: 50px;
+margin: 10px 0;
+background-color: transparent;
+border: 1px solid;
+border-color: rgb(113, 118, 123);
+font-size: 15px;
+}
+
+.input input:hover{
+font-size: x-small;
+padding-bottom: 15px;
+border-color: #3498db;
+}
+
+.input input::placeholder:hover{
+color:#3498db
+}
+
+
+.nextButton{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.resetButton{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.nextButton button{
+margin-top: 20px;
+padding: 5px 130px 5px 130px;
+border-radius: 20px;
+background-color: #fff;
+
+}
+
+.resetButton button{
+margin-top: 15px;
+padding: 5px 80px 5px 75px;
+border-radius: 20px;
+background-color: transparent;
+border: 1px solid;
+border-color: rgb(113, 118, 123);
+color: #fff;
+}
+
+.twitterLoginPageFinished{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 10%;
+color: rgb(113, 118, 123);
+}
+
+.twitterLoginPageFinished a{
+text-decoration: none;
+color: #3498db;
+}
+
+#wrapperPageLogin {
+position: absolute;
+top: 25%;
+left: 90%;
+transform: translate(1%, 1%);
+z-index: 1000;
+}
+
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5); 
+z-index: 1;
+}
+
+#homePageBtnClick{
+cursor: pointer;
+}
+
+.input input{
+  color: #fff;
+}
+
+#nextButtonIndex{
+  cursor: pointer;
+}
+
+#nextButtonIndex a{
+  text-decoration: none;
+}

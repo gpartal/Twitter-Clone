@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/5/5a/X_icon_2.svg" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/change.css">
+  <title>X'e giriş yap /X</title>
+
+  <style>
+    .register{
+      padding:30px;
+    }
+    .register label {
+      color: white;
+    }
+   .register input {
+    width: 100%;
+    padding: 5px 7px;
+   }
+   .register input[type='submit']{
+    width: 50%;
+    padding: 10px 20px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 8px;
+    color: white;
+    margin-top: 20px;
+   }
+  
+
+  </style>
+</head>
+<body>
+<div class="wrapperPageLogin">
+  <div class="loginBoxWrapper">
+
+<div class="loginBox">
+<div class="upleft">
+  <i class="fa-solid fa-xmark markx"></i>
+  <div class="loginCenter">
+    <i class="fa-brands fa-x-twitter logintwitter"></i>
+  </div>
+</div>
+
+<div class="centerTwitterLogin">
+  <p>X'e giriş yap</p>
+</div>
+
+<div class="d-flex" style='display: flex;'>
+      <div class="register">
+        <form method='POST'>
+          {% csrf_token %}
+          <label for="">Kullanıcı adı</label>
+          <input type="text" name="username" id="">
+          <label for="">İsim Soyisim</label>
+          <input type="text" name="name" id="">
+          <label for="">Email</label>
+          <input type="email" name="email" id="">
+          <label for="">Şifre</label>
+          <input type="password" name="password1" id="">
+          <label for="">Şifrenizi onaylayın</label>
+          <input type="password" name="password2" id="">
+          <select name="gender" id="">
+            <option value="male">Erkek</option>
+            <option value="female">Kadın</option>
+          </select>
+
+          <input type="submit" value="Kayıt Ol" name='register'>
+        </form>
+      </div>
+
+      <div class="login">
+        <div class="twitterButtonLogin">
+          <div class="twitterButtonLogin2">
+          <button><i class="fa-brands fa-google twgo"></i>Google ile giriş yap</button>
+        </div>
+          <div class="twitterButtonLogin1"> 
+          <button><i class="fa-brands fa-apple twap"></i>Apple ile giriş yap</button>
+        </div>
+        </div>
+        <p class="tobeornottobe">
+          <small class="leftandright"></small>
+          veya
+          <small class="leftandright"></small>
+        </p>
+        
+        <form method='POST'>
+          {% csrf_token %}
+        <div class="input">
+          <input type="text" name='username' placeholder="Telefon numarası,e-posta veya kullanıcı adı">
+          <input type="password" name="password" id="">
+        </div>
+        
+        <div class="twitterAltButtonGroup">
+        <div class="nextButton">
+          <button id="nextButtonIndex" type='submit' name='login'>Giriş Yap</button>
+        </div>
+   
+
+        <div class="resetButton">
+          <a href="{% url 'reset_password' %}"">Şifreni mi unuttun ?</a>
+        </div>
+        </div>
+      </form>
+        <div class="twitterLoginPageFinished">
+        
+        <p>Henüz bir hesabın yok mu? <a href="">Kaydol</a></p>
+        </div>
+      </div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+  
+
+<script src="./script.js"></script>
+<script src="https://kit.fontawesome.com/4248051235.js" crossorigin="anonymous"> </script>
+</body>
+
+</html>

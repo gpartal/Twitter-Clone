@@ -1,0 +1,75 @@
+<div class="d-flex flex-column flex-shrink-0 text-white col-4 border-start container sideEndMs w-25">
+    <form class="d-flex mt-2" method='GET' action="{% url 'search' %}" role="search">
+      <i class="fa-solid fa-magnifying-glass fs-5 searchBarIcon" style="color: #a3a0a0;"></i>
+      <input class="form-control me-2 ps-5 rounded-5 pt-2 pb-2" value='{{query}}' name='q' type="search" placeholder="Ara" aria-label="Search">
+      <a href="">
+        <i class="fa-solid fa-circle-xmark fs-5"></i>
+      </a>
+    </form>
+    <br><br>
+    <div class="alakaliKısıler rounded-4 overflow-hidden bg-dark ">
+      <h3 class="fs-5 ms-3 mt-2 mb-4">Kimi Takip Etmeli</h3>
+
+      {% for profil in profiles_follows %}
+      <p class="d-flex ">
+        <a href="{% url 'profile' profil.slug %}" class="d-flex align-items-center text-white text-decoration-none ms-3 me-3" id="dropdownUser1">
+          <img src="{{profil.image.url}}" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>{{profil.name}}</strong>
+        </a>
+        <a href="{% url 'profile' profil.slug %}" class="btn btn-light rounded-5 ms-5">Takip Et</a>
+      </p>
+      <p class="m-3 fs-6">
+        {{profil.bio}}
+      </p>
+      {% endfor %}
+    </div>
+    <br>
+    <div class="gundem rounded-4 overflow-hidden bg-dark ">
+      <h3 class="fs-5 ms-3 mt-2 mb-4">Türkiye Gündemi</h3>
+      <div class="container m-0 p-0">
+        <div class="trend-card pt-3">
+          <a href="#" class="">
+            <ul class="gundemList m-1 p-0 ">
+              <li class="trend-title fs-6 ">Trending in Turkey</li><br><br>
+              <li class="card-subject fs-5 "><strong>#benzin</strong></li><br><br>
+              <li class="post-count fs-6 ">1,475 posts</li>
+            </ul>
+          </a>
+        </div>
+        <div class="trend-card pt-3">
+          <a href="#" class="">
+            <ul class="gundemList m-1 p-0 ">
+              <li class="trend-title fs-6 ">Trending in Turkey</li><br><br>
+              <li class="card-subject fs-5 "><strong>#benzin</strong></li><br><br>
+              <li class="post-count fs-6 ">1,475 posts</li>
+            </ul>
+          </a>
+        </div>
+        <div class="trend-card pt-3">
+          <a href="#" class="">
+            <ul class="gundemList m-1 p-0 ">
+              <li class="trend-title fs-6 ">Trending in Turkey</li><br><br>
+              <li class="card-subject fs-5 "><strong>#benzin</strong></li><br><br>
+              <li class="post-count fs-6 ">1,475 posts</li>
+            </ul>
+          </a>
+        </div>
+        <div class="trend-card pt-3">
+          <a href="#" class="">
+            <ul class="gundemList m-1 p-0 ">
+              <li class="trend-title fs-6 ">Trending in Turkey</li><br><br>
+              <li class="card-subject fs-5 "><strong>#benzin</strong></li><br><br>
+              <li class="post-count fs-6 ">1,475 posts</li>
+            </ul>
+          </a>
+        </div>
+        <div class="pt-3 m-3">
+          <a href="#" class="">Daha fazla göster...
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>

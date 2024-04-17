@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% load humanize %}
+
+{% block main %}
+<div class="mt-4">
+    <form method='POST' class='text-end pe-3'>
+        {% csrf_token %}
+        <input type="submit" value="Okundu" class="btn btn-success">
+    </form>
+
+
+    {% for bildirim in bildirimler %}
+    
+    <div 
+    {% if bildirim.isRead %}
+    class="border border-success mt-3 p-3 me-3"
+    
+    {% else %}
+    class="border border-danger mt-3 p-3 me-3"
+    
+    {% endif %}>
+    <a 
+    class='text-decoration-none text-white'
+    {% if bildirim.islem == 'takip' %}
+    href="{% url 'profile' bildirim.sender.slug %}"
+    {% else %}
+    href="{% url 'comment' bildirim.post.id %}"
+    {% endif %}
+    >
+
+        {{bildirim.message}}
+    </a>
+        
+    </div>
+    
+    
+    {% endfor %}
+</div>
+
+{% endblock main %}
+

@@ -1,0 +1,160 @@
+{% extends "index.html" %}
+{% load humanize %}
+
+{% block main %}
+      
+        <div class="row w-100 ">
+          <div class="d-flex mt-1 mb-2">
+            <div class="m-2 p-2 ps-3 pe-3 rounded-5 onHover">
+              <a href="{% url 'back' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+            </div>
+            <div>
+              <a href="#" class="fs-4 d-block text-decoration-none text-light">
+                <strong>
+                  {{profil.name}}
+                </strong>
+                </a>
+              <a href="#" class="fs-6 text-secondary d-block text-decoration-none ">{{profil.post_set.all.count}} gönderi</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row w-100 wallPaper overflow-hidden ">
+          <img src="/static/img/wallpaper.jpeg" alt="">
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between">
+          <img src="{{profil.image.url}}" alt="" width="140" height="140" class="rounded-circle profilPic">
+
+          {% if request.user.profile == profil %}
+          <a href="{% url 'change' %}" class="btn btn-dark bg-black border-secondary border-1  me-4 rounded-5">Profili düzenle</a>
+          {% else %}
+          <form method="POST">
+            {% csrf_token %}
+            <input type="submit"
+            
+            {% if request.user.profile in profile.follower.all %}
+              value="Takipten Çık"
+            {% else %}
+              value="Takip Et"
+            {% endif %}
+            
+             name="follow" class="btn btn-black border-secondary border-1  me-4 rounded-5">
+          </form>
+          
+          {% endif %}
+
+          
+        </div>
+
+
+        <!-- Profil Begin -->
+        <div class="w-100">
+          <div class="pt-2 ">
+            <div class="mb-4 ">
+              <a href="#" class="text-white text-decoration-none d-block  fs-5">{{profil.name}}</a>
+              <a class="fs-6 link-secondary text-decoration-none d-block " href="#">@{{profil.user.username}}</a>
+              <span>{{profil.bio}}</span>
+              <span class="text-secondary d-block fs-6 text-capitalize mb-2 "> <i class="fa-solid fa-calendar-days "></i>  
+              {{profil.created_at|naturalday}}
+
+              {% if profil.created_at|naturalday == 'bugün'  or profil.created_at|naturalday == 'dün' %}
+              
+              {% else %}
+              tarihinde
+              {% endif %}
+              katıldı
+              </span>
+              <div>
+                <a href="#" class="text-secondary text-decoration-none fs-6 me-4"> <span class="text-light">{{profil.follow.all.count}}</span> Takip edilen </a>
+                <a href="#" class="text-secondary text-decoration-none fs-6"><span class="text-light">{{profil.follower.all.count}}</span> Takipçi</a>
+              </div>
+            </div>
+
+            <div class="row w-100 border-bottom">
+              <div class="col-3 zamanAkisi tablinks active postes d-flex align-items-center justify-content-center pt-2 " onclick="openTab(event, 'gonderi')">
+                <div class="">
+                  <p class=""><strong>Gönderiler</strong></p>
+                  
+                </div>
+              </div>
+              <div class="col-3 zamanAkisi tablinks postes d-flex align-items-center justify-content-center pt-2 " onclick="openTab(event, 'yanit')">
+                <div class="">
+                  <p class=""><strong>Yanıtlar</strong></p>
+                  
+                </div>
+              </div>
+              <div class="col-3 zamanAkisi tablinks postes d-flex align-items-center justify-content-center pt-2 " onclick="openTab(event, 'retweet')">
+                <div class="">
+                  <p class=""><strong>Retweet</strong></p>
+                  
+                </div>
+              </div>
+              <div class="col-3 zamanAkisi tablinks postes d-flex align-items-center justify-content-center pt-2 " onclick="openTab(event, 'begeni')">
+                <div class="">
+                  <p class=""><strong>Beğeni</strong></p>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Profil Fin -->
+
+          <!-- Gönderiler -->
+          <div class="tabcontent show" id="gonderi">
+
+            <div class='row'>
+              {% for post in profil.post_set.all %}
+              {% include "partials/_tweet.html" %}
+              {% empty %}
+              <h3 class='text-center mt-3'>Bu kullanıcı henüz hiçbir tweet paylaşmadı</h3>
+              {% endfor %}
+            </div>
+          </div>
+          <!--### Gönderiler ### -->
+
+          <!--Yanıtlar-->
+          <div class="tabcontent" id="yanit">
+  
+             <div class="row">
+              {% for comment in profil.comment_set.all %}
+              <div class="col-2 pt-2 ">
+                <img src="{{comment.owner.image.url}}" alt="" width="50" height="50" class="rounded-circle me-2">
+              </div>
+              <div class="col-10 pt-2 ">
+                <div>
+                  <a href="#" class="text-white text-decoration-none fs-5">{{comment.owner.name}}</a>
+                  <a class="fs-6 link-secondary text-decoration-none" href="#">@{{comment.owner.user.username}}</a>
+                  <a class="fs-6 link-secondary text-decoration-none" href="">・{{comment.created_at | naturaltime}}</a>
+                </div>
+                <div>
+                   @{{comment.post.author.user.username}} <p>{{comment.content}}</p>
+                </div>
+              </div>
+                <hr class='my-2'>
+              {% endfor %}
+        
+             
+
+            </div>
+          
+
+            
+          </div>
+          <!--### Yanitlar ###-->
+        </div>
+
+        <div class="tabcontent" id="retweet">
+
+            {% for post in retweets %}
+            {% include "partials/_tweet.html" %}
+            {% endfor %}
+
+        </div>
+
+        <div class="tabcontent" id="begeni">
+          {% for post in likes %}
+          {% include "partials/_tweet.html" %}
+          {% endfor %}
+        </div>
+        {% endblock main %}

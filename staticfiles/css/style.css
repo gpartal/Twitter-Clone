@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black!important;
+}
+
+/* Left Sidebar Begin */
+.onHover:hover{
+    background-color: rgb(24, 24, 24);
+}
+
+.dropupShadow{
+    box-shadow: 1px 1px 5px rgb(47, 42, 34), 0px 0px 1px 1px rgb(47, 42, 43);
+}
+/* Left Sidebar Fin */
+
+
+
+/* Time Line Begin */
+.zamanAkisi:hover{
+    background-color: rgb(24, 24, 24);
+    cursor: pointer;
+}
+.blueLine{
+    height: 5px;
+}
+.inceAyar{
+    margin-top: 25%;
+}
+.commentHover:hover{
+    background-color: rgb(30, 39, 69);
+    color: lightskyblue;
+}
+.likeHover:hover{
+    background-color: rgb(69, 30, 30);
+    color: lightcoral;
+}
+.viewHover:hover{
+    background-color: rgb(30, 69, 48);
+    color: lightgreen;
+}
+.bottomGroup{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+/* Time Line Fin */
+
+/* Right Sidebar Begin */
+
+.fa-circle-xmark{
+    margin-left: -40px;
+    margin-top: 10px;
+}
+
+.dropupShadow{
+    box-shadow: 1;
+}
+
+.searchBarIcon{
+    margin-left: 10px;
+    margin-top: 10px;
+    position: absolute;
+}
+
+.alakaliKısıler{
+    height: 250px;
+    width: 100%;
+    border: solid rgb(24, 24, 24) 1px;
+}
+
+.gundem{
+    width: 100%;
+    border: solid rgb(24, 24, 24) 1px;
+}
+
+.sideEndMs{
+    margin-left: -10px;
+}
+
+.trend-card {
+    padding: 10px;
+
+    cursor: pointer;
+    text-decoration: none;
+    line-height: 0.5;
+}
+.trend-card:hover {
+    background-color: rgb(29, 31, 35);
+}
+
+.trend-card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-count {
+    color: #666;
+}
+
+.gundemList{
+    list-style-type:none;
+}
+/* Right Sidebar Begin */
+
+
+/* Profil Page */
+.wallPaperMargin{
+    margin-top: 70px;
+}
+
+.wallPaper{
+    height: 200px;
+    width: auto;
+}
+
+.profilPic{
+    margin-top: -70px;
+    border: black 3px solid;
+}
+
+.active{
+    border-bottom: 1px solid rgb(0, 0, 255);
+}
+.tabcontent{
+    display: none;
+}
+.show{
+    display: block;
+}

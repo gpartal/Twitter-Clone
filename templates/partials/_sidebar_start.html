@@ -1,0 +1,110 @@
+<div class="d-flex flex-column p-3 col-4 border-end w-25 ">
+    <ul class="nav nav-pills ">
+      <li class="nav-item ps-2">
+        <a href="#" class="nav-link onHover m-auto rounded-5 ms-3" aria-current="page">
+          <img class="rounded-5" style="height: 30px;" src="/static/img/x.png" alt="">
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav nav-pills column-gap-3  fs-4 ">
+      <li class="nav-item ms-4">
+        <a href="/" class="nav-link text-white onHover rounded-5 " aria-current="page">
+          <i class="fa-solid fa-house pe-2" style="color: #fffafa;"></i>
+          Anasayfa
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="{% url 'explore' %}" class="nav-link text-white onHover rounded-5">
+
+          <i class="fa-solid fa-magnifying-glass pe-2" style="color: #ffffff;"></i>
+          Keşfet
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="{% url 'notifications' %}" class="nav-link text-white onHover rounded-5">
+          <i class="fa-regular fa-bell pe-2 " style="color: #ffffff;"></i>
+          Bildirim
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="#" class="nav-link text-white onHover rounded-5">
+          <i class="fa-regular fa-envelope pe-2 " style="color: #ffffff;"></i>
+          Mesajlar
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="#" class="nav-link text-white onHover rounded-5">
+          <i class="fa-solid fa-receipt pe-2" style="color: #ffffff;"></i>
+          Listeler
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="{% url 'saves' %}" class="nav-link text-white onHover rounded-5">
+          <i class="fa-solid fa-regular fa-flag pe-2" style="color: #ffffff;"></i>
+          Yer İşaretleri
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="#" class="nav-link text-white onHover rounded-5">
+          <i class="fa-solid fa-user-group pe-2" style="color: #ffffff;"></i>
+          Topluluklar
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="#" class="nav-link text-white onHover rounded-5">
+          <i class="fa-brands fa-x-twitter pe-2" style="color: #ffffff;"></i>
+          Premium
+        </a>
+      </li>
+      <li class="ms-4">
+        <a href="{% url 'profile' request.user.profile.slug %}" class="nav-link text-white onHover rounded-5">
+          <i class="fa-regular fa-user pe-2" style="color: #ffffff;"></i>
+          Profil
+        </a>
+      </li>
+      <!-- Default dropup button -->
+      <li class="btn-group dropup">
+        <button type="button" class="btn dropdown-toggle onHover rounded-5 ms-4 fs-4" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fa-solid fa-ellipsis pe-2 " style="color: #ffffff;"></i>
+          Daha Fazla
+        </button>
+        <ul class="dropdown-menu bg-black fs-4 rounded-3 dropupShadow ">
+          <!-- Dropdown menu links -->
+          <li><a class="dropdown-item onHover " href="#">
+              <i class="fa-solid fa-money-check-dollar me-3" style="color: #ffffff;"></i>
+              Para Kazanma</a></li>
+          <li><a class="dropdown-item onHover" href="#">
+              <i class="fa-solid fa-diagram-project me-3" style="color: #ffffff;"></i>
+              Pro</a></li>
+          <li><a class="dropdown-item onHover" href="#">
+              <i class="fa-solid fa-share-from-square me-3" style="color: #ffffff;"></i>
+              Reklamlar</a></li>
+          <li><a class="dropdown-item onHover" href="#">
+              <i class="fa-solid fa-gear me-3" style="color: #ffffff;"></i>
+              Ayarlar ve Gizlilik</a></li>
+        </ul>
+      </li>
+    </ul>
+    <a href="" class="btn btn-primary rounded-4 mt-3 ms-4 me-4 mb-5 fs-4 ">Gönder</a>
+
+    <div class="dropdown mt-5 ms-4 onHover rounded-5 pt-2 ps-2 fs-4 d-flex ">
+      <img src="{{request.user.profile.image.url}}" alt="" width="50" height="50" class="rounded-circle me-2">
+      <div>
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle fs-5"
+          id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          {{request.user.profile.name}}
+        </a>
+        <a class="fs-6 link-secondary text-decoration-none " href="#">@{{request.user}}</a>
+        <ul class="dropdown-menu bg-black rounded-3 dropupShadow" aria-labelledby="dropdownUser1">
+          <li>
+            <a class="dropdown-item onHover " href="#">Var olan bir hesap ekle</a>
+          </li>
+          <li>
+            <a class="dropdown-item onHover " href="{% url 'logout' %}">Çıkış Yap</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
